@@ -18,3 +18,6 @@ class Solution:
         
         #convert set to list to extract the first item
         return list(myset3)[0]
+
+    
+        #NOTE:for better runtime you can forget myset3 and use instead: res=list(myset1-myset2)[0]
