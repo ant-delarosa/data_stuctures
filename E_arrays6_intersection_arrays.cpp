@@ -2,23 +2,9 @@
 
 class Solution {
 public:
-    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
-        
-        
+        vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+               
         vector<int> nums3;
-        
-//         for (auto item : nums1)
-
-//             for (auto item2 : nums2)
-
-//                 if (item2==item){
-                    
-//                     nums3.push_back(item);
-//                     nums2.pop(item2);
-//                     break
-                    
-                    
-//                 }
         
         int i,j;
         
@@ -30,7 +16,7 @@ public:
                 if (nums2[j]==nums1[i]){
                     
                     nums3.push_back(nums1[i]);
-                    nums2.erase(nums2.begin(), nums2.begin()+j);
+                    nums2.erase(nums2.begin()+j);
                     break;
                 }
                 
@@ -38,11 +24,30 @@ public:
             }
 
         }
-                    
-
-            
-          
+                      
         return nums3;
         
     }
 };
+
+
+//Other efficient runtime solution:
+// class Solution {
+// public:
+//     vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+        
+//         map<int,int> table;
+//         vector<int> ans;
+        
+//         for(int x:nums1) table[x]++;
+//         for(int x:nums2)
+//             if(table.count(x) && table[x]>0){
+//                 table[x]--;
+//                 ans.push_back(x);
+//             }
+        
+//         return ans;
+        
+        
+//     }
+// };
