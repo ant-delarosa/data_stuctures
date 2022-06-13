@@ -24,8 +24,9 @@ public:
             }
         
         
+        //to extract the difference between the two sets in a new vector
         vector<int> diff;
- 
+  
         set_difference(myset1.begin(), myset1.end(), myset2.begin(), myset2.end(),
                         inserter(diff, diff.begin()));
             
