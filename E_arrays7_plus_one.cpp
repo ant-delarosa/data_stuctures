@@ -5,20 +5,33 @@ public:
     vector<int> plusOne(vector<int>& digits) {
         
         
-        if (digits[digits.size()-1]==9){
+        for (int i=(digits.size()-1); i=0; i--){
+            cout<<i<<endl;
+            if (digits[i]==9){
+                
+                digits[i]=0;
+
+            }
+            else{
+                
+                digits[i]+=1;
+                break;
+                    
+            }
+                
+               
             
-            digits[digits.size()-1]=1;
-            digits.push_back(0);
         }
         
-        else {
+        
+        if (digits[0]==0){
             
-            digits[digits.size()-1]+=1;
+            //insert item at the beginning of the list
+            digits.insert(digits.begin(),1);
+            
         }
-        
-        
-        
-        
+
         return digits;
+        
     }
 };
