@@ -18,10 +18,10 @@ class Solution:
         
         for i in range(0, len(nums)):
             
-            #dont start by 0, start by i because previous casa are already checked
-            for j in range(i, len(nums)):
+            #dont start by 0, start by i+1 because previous cases are already checked
+            for j in range(i+1, len(nums)):
                 
-                if nums[i]+nums[j]==target and i!=j:
+                if nums[i]+nums[j]==target:
                     
                     #you can return directly the items in a list
                     return [i, j]
@@ -51,21 +51,32 @@ class Solution2:
       
    
 # Very efficient solution, complexity les than 0(n^2)
-   class Solution3:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        # In this problem, you initialize a dictionary (seen). 
-        # This dictionary will keep track of numbers (as key) and indices (as value). 
-        # when going through the array, you calculate the remaining and check 
-        # to see whether remaining is in the seen dictionary (line #3). 
-        # If it is, you're done! you're current number 
-        # and the remaining from seen would give you the output (line #4). 
-        # Otherwise, you add your current number to the dictionary (line #5) 
-        # since it's going to be a remaining for (probably) 
-        # a number you'll see in the future assuming that there is at least one instance of answer.
-        # T: O(n), S: O(n) for dict extra space
-        seen = dict()
-        for i, value in enumerate(nums): #1
-            remaining = target - nums[i] #2
 
-            if remaining in seen: #3
-                return [i, seen[remaining]]  #4   
+#    class Solution3:
+#     def twoSum(self, nums: List[int], target: int) -> List[int]:
+#         # In this problem, you initialize a dictionary (seen). 
+#         # This dictionary will keep track of numbers (as key) and indices (as value). 
+#         # when going through the array, you calculate the remaining and check 
+#         # to see whether remaining is in the seen dictionary (line #3). 
+#         # If it is, you're done! you're current number 
+#         # and the remaining from seen would give you the output (line #4). 
+#         # Otherwise, you add your current number to the dictionary (line #5) 
+#         # since it's going to be a remaining for (probably) 
+#         # a number you'll see in the future assuming that there is at least one instance of answer.
+#         # T: O(n), S: O(n) for dict extra space
+#         seen = dict()
+#         for i, value in enumerate(nums): #1
+#             remaining = target - nums[i] #2
+
+#             if remaining in seen: #3
+#                 return [i, seen[remaining]]  #4   
+
+class Solution3:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        dict ={
+        }
+        for i in range(0, len(nums)):
+            if (target - nums[i]) in dict:
+                return [dict[target - nums[i]], i]
+            else:
+                dict[nums[i]] = i
