@@ -14,8 +14,6 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         
-        res=[]
-        
         for i in range(0, len(nums)):
             
             #dont start by 0, start by i+1 because previous cases are already checked
