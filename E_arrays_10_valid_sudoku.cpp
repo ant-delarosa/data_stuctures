@@ -11,17 +11,18 @@ public:
         
         int i, j;
         
-        //board[0].size=9
         //check rows
         for (i=0; i<9; i++){
             set<char> myset1;
             
             for (j=0; j<9; j++){
+                //cout<<myset1.count(board[i][j])<<endl;
                 if (myset1.count(board[i][j])){
                     return false;
                 }
         
-                if (&board[i][j]!="."){
+                if ((board[i][j])!='.'){
+                    //cout<<board[i][j]<<endl;
                     myset1.insert(board[i][j]);
                 }
             }
@@ -38,7 +39,7 @@ public:
                     return false;
                 }
         
-                if (&board[j][i]!="."){
+                if (board[j][i]!='.'){
                     myset1.insert(board[j][i]);
                 }
             }
@@ -55,9 +56,9 @@ public:
                 if (myset1.count(board[i][j])){
                     return false;
                 }
-        
-                if (&board[i][j]!="."){
+                if (board[i][j]!='.'){
                     myset1.insert(board[i][j]);
+                   
                 }
             }
         }
@@ -72,7 +73,7 @@ public:
                     return false;
                 }
         
-                if (&board[i][j+3]!="."){
+                if (board[i][j+3]!='.'){
                     myset1.insert(board[i][j+3]);
                 }
             }
@@ -84,11 +85,15 @@ public:
             set<char> myset1;
             
             for (j=0; j<3; j++){
+                
+                cout<<(board[i][j+6])<<endl;
+
                 if (myset1.count(board[i][j+6])){
                     return false;
                 }
         
-                if (&board[i][j+6]!="."){
+                if (board[i][j+6]!='.'){
+
                     myset1.insert(board[i][j+6]);
                 }
             }
@@ -104,7 +109,7 @@ public:
                     return false;
                 }
         
-                if (&board[i+3][j]!="."){
+                if (board[i+3][j]!='.'){
                     myset1.insert(board[i+3][j]);
                 }
             }
@@ -120,7 +125,7 @@ public:
                     return false;
                 }
         
-                if (&board[i+3][j+3]!="."){
+                if (board[i+3][j+3]!='.'){
                     myset1.insert(board[i+3][j+3]);
                 }
             }
@@ -136,7 +141,7 @@ public:
                     return false;
                 }
         
-                if (&board[i+3][j+6]!="."){
+                if (board[i+3][j+6]!='.'){
                     myset1.insert(board[i+3][j+6]);
                 }
             }
@@ -152,7 +157,7 @@ public:
                     return false;
                 }
         
-                if (&board[i+6][j]!="."){
+                if (board[i+6][j]!='.'){
                     myset1.insert(board[i+6][j]);
                 }
             }
@@ -168,7 +173,7 @@ public:
                     return false;
                 }
         
-                if (&board[i+6][j+3]!="."){
+                if (board[i+6][j+3]!='.'){
                     myset1.insert(board[i+6][j+3]);
                 }
             }
@@ -184,7 +189,7 @@ public:
                     return false;
                 }
         
-                if (&board[i+6][j+6]!="."){
+                if (board[i+6][j+6]!='.'){
                     myset1.insert(board[i+6][j+6]);
                 }
             }
